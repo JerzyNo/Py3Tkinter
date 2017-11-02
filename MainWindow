@@ -16,6 +16,20 @@ class MainWindow(Frame):
         # allow full size
         self.pack(fill=BOTH, expand=1)
 
+        #create Manu
+        mainMenu = Menu(self.master)
+        self.master.config(menu = mainMenu)
+
+        # create group menu
+        file = Menu(mainMenu)
+        file.add_command(label = "Exit", command=self.quitFromApp)
+
+        mainMenu.add_cascade(label = "File",menu = file)
+
+        edit = Menu(mainMenu)
+        edit.add_command(label="Undo")
+        mainMenu.add_cascade(label="Edit", menu=edit)
+
         quitButton = Button(self, text="Exit", command=self.quitFromApp)
         quitButton.place(x=10, y=10)
 
