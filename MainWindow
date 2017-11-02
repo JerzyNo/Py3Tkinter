@@ -1,0 +1,33 @@
+#!/usr/bin/python
+
+from tkinter import *
+
+
+class MainWindow(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.master = master
+        self.init_window()
+
+    def init_window(self):
+        # change title
+        self.master.title("Gui app")
+
+        # allow full size
+        self.pack(fill=BOTH, expand=1)
+
+        quitButton = Button(self, text="Exit", command=self.quitFromApp)
+        quitButton.place(x=10, y=10)
+
+    def quitFromApp(self):
+        exit()
+
+
+root = Tk()
+
+# size of window
+root.geometry("400x200")
+
+app = MainWindow(root)
+
+root.mainloop()
